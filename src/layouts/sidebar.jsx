@@ -9,8 +9,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { CircleUser, Home, Menu, User } from "lucide-react";
+import { CircleUser, Home, Menu, User, ShoppingCart } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
+
 const navItems = [
   {
     title: "Home",
@@ -21,6 +22,11 @@ const navItems = [
     title: "Customer Details",
     to: "/customer-details",
     icon: <User className="h-4 w-4" />,
+  },
+  {
+    title: "Purchase Summary",
+    to: "/purchase-summary",
+    icon: <ShoppingCart className="h-4 w-4" />,
   },
 ];
 

@@ -7,6 +7,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "./layouts/sidebar"; // Updated to use sidebar layout
 import Index from "./pages/Index.jsx";
 import CustomerDetails from "./pages/CustomerDetails.jsx";
+import PurchaseSummary from "./pages/PurchaseSummary.jsx";
 const queryClient = new QueryClient();
 
 export const navItems = [
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="/" element={<Layout />}>
               <Route index element={<Index />} />
               <Route path="customer-details" element={<CustomerDetails />} />
+              <Route path="purchase-summary" element={<PurchaseSummary />} />
             </Route>
           </Routes>
         </Router>
