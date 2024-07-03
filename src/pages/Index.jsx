@@ -2,18 +2,27 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const Index = () => {
   const [products, setProducts] = useState([]);
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
   const [price, setPrice] = useState("");
+  const [purchaseList, setPurchaseList] = useState({});
 
   const handleAddProduct = () => {
     setProducts([...products, { title, type, price }]);
     setTitle("");
     setType("");
     setPrice("");
+  };
+
+  const handleCheckboxChange = (index) => {
+    setPurchaseList((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
   };
 
   return (
@@ -43,6 +52,7 @@ const Index = () => {
             <TableHead>Title</TableHead>
             <TableHead>Type</TableHead>
             <TableHead>Price</TableHead>
+            <TableHead>Purchase</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -51,6 +61,12 @@ const Index = () => {
               <TableCell>{product.title}</TableCell>
               <TableCell>{product.type}</TableCell>
               <TableCell>{product.price}</TableCell>
+              <TableCell>
+                <Checkbox
+                  checked={purchaseList[index] || false}
+                  onCheckedChange={() => handleCheckboxChange(index)}
+                />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
