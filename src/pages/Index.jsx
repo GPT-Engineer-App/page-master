@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Checkbox } from "@/components/ui/checkbox";
 
-const Index = () => {
+const Index = ({ purchaseList, setPurchaseList }) => {
   const [products, setProducts] = useState([
     { title: "Product 1", type: "Type A", price: "$10" },
     { title: "Product 2", type: "Type B", price: "$20" },
@@ -10,7 +10,6 @@ const Index = () => {
     { title: "Product 4", type: "Type D", price: "$40" },
     { title: "Product 5", type: "Type E", price: "$50" },
   ]);
-  const [purchaseList, setPurchaseList] = useState({});
 
   const handleCheckboxChange = (index) => {
     setPurchaseList((prev) => ({

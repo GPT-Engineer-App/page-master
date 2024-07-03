@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
-const PurchaseSummary = () => {
+const PurchaseSummary = ({ purchaseList }) => {
   const [purchases, setPurchases] = useState([
     { title: "Product 1", type: "Type A", price: 10 },
     { title: "Product 2", type: "Type B", price: 20 },
@@ -9,15 +9,19 @@ const PurchaseSummary = () => {
     { title: "Product 4", type: "Type D", price: 40 },
     { title: "Product 5", type: "Type E", price: 50 },
   ]);
+  const [filteredPurchases, setFilteredPurchases] = useState([]);
   const [total, setTotal] = useState(0);
   const [tax, setTax] = useState(0);
 
   useEffect(() => {
-    const totalPrice = purchases.reduce((acc, purchase) => acc + purchase.price, 0);
+    const selectedPurchases = purchases.filter((_, index) => purchaseList[index]);
+    setFilteredPurchases(selectedPurchases);
+
+    const totalPrice = selectedPurchases.reduce((acc, purchase) => acc + purchase.price, 0);
     const taxAmount = totalPrice * 0.2;
     setTotal(totalPrice);
     setTax(taxAmount);
-  }, [purchases]);
+  }, [purchaseList, purchases]);
 
   return (
     <div className="container mx-auto p-4">
@@ -31,7 +35,7 @@ const PurchaseSummary = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {purchases.map((purchase, index) => (
+          {filteredPurchases.map((purchase, index) => (
             <TableRow key={index}>
               <TableCell>{purchase.title}</TableCell>
               <TableCell>{purchase.type}</TableCell>
