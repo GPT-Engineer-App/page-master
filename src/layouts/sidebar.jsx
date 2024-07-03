@@ -14,7 +14,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const navItems = [
   {
-    title: "Home",
+    title: "Sales",
     to: "/",
     icon: <Home className="h-4 w-4" />,
   },
