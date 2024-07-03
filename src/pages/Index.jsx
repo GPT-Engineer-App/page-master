@@ -20,7 +20,7 @@ const Index = ({ purchaseList, setPurchaseList }) => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">John Website</h1>
+      <h1 className="text-3xl font-bold mb-4">Sales</h1>
       <Table>
         <TableHeader>
           <TableRow>
