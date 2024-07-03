@@ -3,7 +3,13 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 
 const Index = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([
+    { title: "Product 1", type: "Type A", price: "$10" },
+    { title: "Product 2", type: "Type B", price: "$20" },
+    { title: "Product 3", type: "Type C", price: "$30" },
+    { title: "Product 4", type: "Type D", price: "$40" },
+    { title: "Product 5", type: "Type E", price: "$50" },
+  ]);
   const [purchaseList, setPurchaseList] = useState({});
 
   const handleCheckboxChange = (index) => {
